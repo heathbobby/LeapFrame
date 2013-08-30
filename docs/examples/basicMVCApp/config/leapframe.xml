@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE leapframe SYSTEM "leapframe.dtd">
+<leapframe>
+	
+	<properties>
+		<property name="applicationRoot" value="/" />
+		<property name="configDir" value="config/" />
+		<property name="configFile" value="leapframe.xml" />
+		<property name="isProd" value="true" />
+		<property name="defaultAction" value="home" />
+		<property name="siteroot" value="/" />
+		<property name="viewpath" value="/" />
+		<property name="scriptPath" value="view/resources" />
+		<property name="stylePath" value="view/resources" />
+		<property name="baseTemplate" value="index.cfm" />
+	</properties>
+	
+	<plugins />
+	
+	<includes />
+	
+	<handlers>
+			
+		<handler action="home">
+			<view templateName="home.cfm" />
+		</handler>
+		
+	</handlers>
+</leapframe>

@@ -1,0 +1,29 @@
+<p align="center">LeapFrame  Configuration File</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Leapframe  requires a base configuration file, leapframe.xml,&nbsp; to be included in the config&nbsp; directory.&nbsp;  This configuration file has two required sections; Properties, and  Handlers. </p>
+<p>Properties<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Properties  are attributes added to the application manager object.&nbsp; The application manager is instantiated into  the application scope.&nbsp; Any static,  application specific, property should be included here.&nbsp; The required properties are: </p>
+<ul>
+  <li>viewpath &ndash; this should be the path to the directory  that contains the view components.</li>
+  <li>configpath &ndash; the directory from the root  directory that contains the xml configuration files. </li>
+  <li>Httproot &ndash; Uri to the root of the application. (  i.e. http://www.leapframe.com) </li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The  properties tag must be included in the leapframe.xml file and must have at  least one child property tag.&nbsp; The  property tag has two required attributes: name, and value.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;properties&gt;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property  name=&rdquo;[property name]&rdquo; value=&rdquo;[property value]&rdquo; /&gt;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/properties&gt;</p>
+<p>Handlers</p>
+<p>Includes<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Includes  are a way in which you may subdivide your application's action handlers  into&nbsp; functionality groupings.&nbsp; For instance, if your site has a section for  user management and a shopping cart, you could divide the actions into  userHandlers.xml, and shoppingCartHandlers.xml.&nbsp;&nbsp; This allows you to focus on only the task  you are working on currently without having to constantly step over the other  sections handlers.&nbsp; This does introduce  an issue, however.&nbsp; In larger systems it  may become difficult to track down in all of your handler files where the  handler for a particular action may be.&nbsp;  For this reason I have, by convention, appended a section prefix to  every action.&nbsp; For example, within the  userHandlers.xml file I define all handler actions as &ldquo;user.[actionName]&rdquo;.&nbsp; The include tag has one required attribute:  xml. The value passed to the xml attribute should be the path to the file you  are including without the filetype extension.&nbsp;  The path you include will be relative to the configpath attribute  specified in index.cfm.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;include  xml=&rdquo;[includefilepath]&rdquo; /&gt;</p>
+<p>Handler Commands</p>
+<p>&nbsp;</p>
+<p>listener</p>
+<p>actionArg -</p>
+<p>view -</p>
+<p>filter -</p>
+<p>announce -</p>
+<p>redirect -</p>
+<p>stylesheets -</p>
+<p>scripts -</p>

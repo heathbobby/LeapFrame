@@ -1,0 +1,75 @@
+<!ELEMENT leapframe (properties|plugins|includes|handlers)*>
+<!ELEMENT properties (property*)>
+<!ELEMENT property EMPTY>
+<!ATTLIST property 
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+>
+<!ELEMENT plugins (plugin*)>
+<!ELEMENT plugin EMPTY>
+<!ATTLIST plugin
+	plugin CDATA #REQUIRED
+	config CDATA #IMPLIED
+> 
+<!ELEMENT includes (include*)>
+<!ELEMENT include EMPTY>
+<!ATTLIST include
+	xml CDATA #REQUIRED
+> 
+<!ELEMENT handlers (handler|include)*>
+<!ELEMENT handler (view|filter|listener|forward|announce|redirect|actionArg|scripts|stylesheets)*>
+<!ATTLIST handler 
+	action CDATA #REQUIRED
+	outputFormat CDATA "standard"
+>
+<!ELEMENT view EMPTY >
+<!ATTLIST view 
+	templateName CDATA #REQUIRED
+	resultVar CDATA #IMPLIED
+>
+<!ELEMENT filter EMPTY >
+<!ATTLIST filter 
+	component CDATA #REQUIRED
+	method CDATA #REQUIRED
+	faultAction CDATA #IMPLIED
+>
+<!ELEMENT listener (param*) >
+<!ATTLIST listener 
+	component CDATA #REQUIRED
+	method CDATA #REQUIRED
+	resultVar CDATA #IMPLIED
+>
+<!ELEMENT param ANY >
+<!ATTLIST param
+	name CDATA #REQUIRED
+	value CDATA #IMPLIED
+>
+<!ELEMENT forward (arg*) >
+<!ATTLIST forward
+	action CDATA #REQUIRED
+	transfer CDATA #IMPLIED
+>
+<!ELEMENT arg EMPTY>
+<!ATTLIST arg
+	name CDATA #REQUIRED
+	translate CDATA #IMPLIED
+>
+
+<!ELEMENT announce EMPTY >
+<!ATTLIST announce 
+	action CDATA #REQUIRED
+>
+<!ELEMENT redirect EMPTY >
+<!ATTLIST redirect 
+	action CDATA #REQUIRED
+>
+<!ELEMENT actionArg EMPTY >
+<!ATTLIST actionArg 
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT scripts (file+)>
+
+<!ELEMENT stylesheets (file+)>
+<!ELEMENT file (#PCDATA) >
